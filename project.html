@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Library Management</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+  
+
+    body { 
+      background-color: goldenrod;
+      font-family: Arial, sans-serif; margin: 20px; }
+    h1 { color: #333; }
+    table, th, td { border: 1px solid black; border-collapse: collapse; padding: 10px; }
+    table { width: 100%; margin-top: 20px; }
+    input[type="text"] { padding: 5px; width: 200px; }
+    button { padding: 5px 10px; margin-left: 10px; }
+  </style>
+</head>
+<body>
+<center>
+
+  <h1>Library Management System</h1>
+<p style="background-image: url('library.jpg');"></p>
+  <h3>Add Book</h3>
+  <input type="text" id="title" placeholder="Book Title">
+  <input type="text" id="author" placeholder="Author">
+  <button onclick="addBook()">Add</button>
+
+  <h3>Book List</h3>
+  <table id="bookTable">
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+    </tr>
+  </table>
+
+  <script>
+    function addBook() {
+      const title = document.getElementById('title').value;
+      const author = document.getElementById('author').value;
+
+      if (!title || !author) {
+        alert("Please enter both title and author.");
+        return;
+      }
+
+      const table = document.getElementById('bookTable');
+      const row = table.insertRow();
+      const cell1 = row.insertCell(0);
+      const cell2 = row.insertCell(1);
+
+      cell1.textContent = title;
+      cell2.textContent = author;
+
+      // Clear inputs
+      document.getElementById('title').value = '';
+      document.getElementById('author').value = '';
+    }
+  </script>
+</center>
+</body>
+</html>
